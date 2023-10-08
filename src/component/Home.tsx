@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import AddEmployee from "./AddEmployee";
 import { EditEmployee } from "./EditEmployee";
-// import { AddEmployee } from "./AddEmployee";
+
 import { IEmployee, PageEnum } from "./Employee.type";
 import { EmployeeList } from "./EmployeeList";
-import "./Home.style.css";
+// import { gsap } from "gsap";
+
 export const Home = () => {
   const [employeeList, setEmployeeList] = useState([] as IEmployee[]);
 
@@ -54,22 +55,43 @@ export const Home = () => {
     setEmployeeList(list);
     window.localStorage.setItem("EmployeeList", JSON.stringify(list));
   };
+
+  // let title = useRef<HTMLHeadingElement | null>(null);
+  // useEffect(() => {
+  //   console.log("kishlay", title);
+  //   gsap.from(title.current, {
+  //     x: 800,
+  //     opacity: 0,
+  //     duration: 1,
+  //     delay: 0.5,
+  //     repeat: -1,
+  //     yoyo: true,
+  //   });
+  // }, []);
+
   return (
     <>
-      <article className="article-header">
+      <article className="bg-blue-900 text-white text-center border-[3px] border-transparent">
         <header>
-          <h1>React: Simple CRUD Application</h1>
+          <h1
+            // ref={(el) => {
+            //   title.current = el;
+            // }}
+            className="text-[20px] py-4"
+          >
+            React: Simple CRUD Application
+          </h1>
         </header>
       </article>
 
-      <section className="section-content">
+      <section className="mx-10% mt-15%">
         {shownPage === PageEnum.list && (
           <>
             <input
               type="button"
               value="Add Employee"
               onClick={onAddEmployeeClickHnd}
-              className="add-employee-btn"
+              className="float-right pr-5 font-bold text-[24px] text-red-400 cursor-pointer"
             />
             <EmployeeList
               list={employeeList}

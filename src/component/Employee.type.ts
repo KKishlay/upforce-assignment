@@ -3,6 +3,9 @@ export interface IEmployee {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string;
+  selectedState: string;
+  selectedCity: string;
 }
 
 export enum PageEnum {

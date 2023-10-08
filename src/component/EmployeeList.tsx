@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { IEmployee } from "./Employee.type";
-import "./EmployeeList.style.css";
 import { EmployeeModal } from "./EmployeeModal";
 
 type props = {
@@ -25,37 +24,57 @@ export const EmployeeList = (props: props) => {
 
   return (
     <>
-      <article className="list-header">
-        <h3>Employee List </h3>
+      <article className="text-center">
+        <h3 className="py-12 text-[20px] font-medium">Employee List </h3>
       </article>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
+      <table className="min-w-full divide-y divide-gray-200">
+        <thead className="sticky top-0 bg-gray-200">
+          <tr>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Name
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Email
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Phone Number
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Location
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Actions
+            </th>
+          </tr>
+        </thead>
         {list.map((employee) => {
           console.log(employee);
           return (
-            <tr key={employee.id}>
-              <td>{`${employee.firstName} ${employee.lastName}`}</td>
-              <td>{employee.email}</td>
+            <tr key={employee.id} className="hover:bg-gray-100">
+              <td className="px-6 py-4 whitespace-nowrap">{`${employee.firstName} ${employee.lastName}`}</td>
+              <td className="px-6 py-4 whitespace-nowrap">{employee.email}</td>
+              <td className="px-6 py-4 whitespace-nowrap">{employee.phone}</td>
+              <td className="px-6 py-4 whitespace-nowrap">{`${employee.selectedState} , ${employee.selectedCity}`}</td>
+
               <td>
-                <div>
+                <div className="font-semibold">
                   <input
-                    type="button"
+                    type="Button"
                     value="view"
                     onClick={() => viewEmployee(employee)}
+                    className="text-green-500 cursor-pointer"
                   />
                   <input
                     type="button"
-                    value="edit"
+                    value="Edit"
                     onClick={() => onEdit(employee)}
+                    className="pl-2 text-orange-500 cursor-pointer"
                   />
                   <input
                     type="button"
-                    value="delete"
+                    value="Delete"
                     onClick={() => onDeleteClickHnd(employee)}
+                    className="pl-2 text-red-600  cursor-pointer"
                   />
                 </div>
               </td>
