@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AddEmployee from "./AddEmployee";
 import { EditEmployee } from "./EditEmployee";
-
 import { IEmployee, PageEnum } from "./Employee.type";
 import { EmployeeList } from "./EmployeeList";
 // import { gsap } from "gsap";
@@ -57,17 +56,18 @@ export const Home = () => {
   };
 
   // let title = useRef<HTMLHeadingElement | null>(null);
+
   // useEffect(() => {
   //   console.log("kishlay", title);
   //   gsap.from(title.current, {
-  //     x: 800,
+  //     x: -800,
   //     opacity: 0,
   //     duration: 1,
   //     delay: 0.5,
   //     repeat: -1,
   //     yoyo: true,
   //   });
-  // }, []);
+  // }, [title]);
 
   return (
     <>
@@ -77,6 +77,7 @@ export const Home = () => {
             // ref={(el) => {
             //   title.current = el;
             // }}
+
             className="text-[20px] py-4"
           >
             React: Simple CRUD Application
